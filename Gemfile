@@ -86,3 +86,5 @@ gem "jquery-rails"
 
 #環境変数をまとめて管理するための'dotenv-rails'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+
+gem "nokogiri", ">= 1.10.4"
