@@ -6,9 +6,8 @@
 
 ***自身で使用する場合の事前準備***
 
-1. railsを利用できるサーバー？または、railsが動作する開発環境で利用
-2. youtubedataApiを利用するためのAPIkeyの取得
-3. 以下のファイルのENV["YOUTUBE_APIKEY"]を自身で取得したYoutubeDataApiのAPIKEYに変更
+1. youtubedataApiを利用するためのAPIkeyの取得
+2. 以下のファイルのENV["YOUTUBE_APIKEY"]を自身で取得したYoutubeDataApiのAPIKEYに変更
 
 - /video_catch/app/models/search_result.rb
 
@@ -33,19 +32,6 @@ HerokuSchedulerで以下3つのメソッドを登録すれば、指定した時�
 - rake serech_everyday:find_youtubevideo
 - rake serech_everyday:find_nicovideo
 - rake serech_everyday:find_dailymotionvideo
-
-***通知機能***
-
-拾ってきた動画数を、Webpush通知で教えてくれます。
-
-通知機能を加えたい場合、Onesignalの取得が必要になります。
-
-Onesignalの使い方は色々なサイトで説明されているため省略しますが、OnesignalのAppidが取得できたら、以下ファイルのENV["ONESIGNAL_PRODUCTION_APPID"]を自身で取得したOnesignalのappidに変更してください。
-
-- /video_catch/app/views/layouts/application.html.erb
-appId = ENV["ONESIGNAL_PRODUCTION_APPID"]
-
-これで多分通知機能がONになるはずです。
 
 ***使用ライブラリ***
 - Ruby on Rails
