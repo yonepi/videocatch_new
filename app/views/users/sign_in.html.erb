@@ -1,0 +1,9 @@
+
+    <p>新規登録を行う</p>
+    <%= form_tag("/users/sign_in") do %>
+      <p>名前</p>
+      <input name="name" value="<%= @user.name %>">
+      <p>パスワード</p>
+      <input type="password" name="password" value="<%= @user.password %>">
+      <input type="submit" value="新規登録">
+    <% end %>

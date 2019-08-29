@@ -1,0 +1,129 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.videosite_title{
+    color: #364e96;
+    border-top: solid 3px #364e96;
+    border-bottom: solid 3px #364e96;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0px;
+}
+
+.today_get_title{
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.4em 0.5em;
+    color: #494949;
+    background: #f4f4f4;
+    border-left: solid 5px #7db4e6;
+    border-bottom: solid 3px #d7d7d7;
+    margin: 2em 0px 0.5em 0px;
+}
+
+.searchresult_wrapper{
+  padding: 10px 0px;
+}
+
+.searchword_title{
+  
+}
+
+.search_keyword{
+    display: inline-block;
+    font-weight: bold;
+    margin: 0;
+}
+
+/**以下、video_oneblock内のCSS**/
+
+.video_oneblock{
+    display: inline-block;
+    width: 22%;
+    overflow: hidden;
+    margin: 3px;
+    background-color: white;
+}
+/*スマホ縦持ちの場合*/
+@media screen and (orientation: portrait)and (max-width: 512px){
+    .video_oneblock{
+      display: inline-block;
+      width: 42%;
+      overflow: hidden;
+      margin: 5px;
+      background-color: white;
+    }
+}
+
+.video_information_area{
+    margin: -7px 0px 0px 0px;
+}
+
+.video_title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+}
+
+.video_channel{
+    color: #656565;
+    margin: 0px;
+    display: block;
+    //以下、テキストの折り返しの指定
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.video_published_time{
+    margin:0px;
+}
+
+.video_duration{
+    margin: -24px 0px 0px 0px;
+    position: absolute;
+    background-color: gray;
+}
+
+.video_thumbnails{
+    width: 100%;
+    height: auto;
+}
+
+/**---------------------------もっと見るボタンここから--------------------**/
+
+.grad_wrap {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grad_trigger {  /*ボタンのスタイル*/
+    line-height: 1.5rem;
+    bottom: 20px;
+    width: 14rem;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: rgba(27, 37, 56, 1);
+}
+
+.grad_item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.hide_shadow{
+    height: 50px;
+    width: 100%;
+    opacity: 0.6;
+    position: absolute;
+    background-color: white;
+}
+/**---------------------------もっと見るボタンここまで--------------------**/

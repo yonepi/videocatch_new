@@ -1,0 +1,30 @@
+<% config_num=1 %>
+
+<h1>設定動画一覧</h1>
+<p>新規設定</p>
+    <%= form_tag("/serch_data/serch_config") do %>
+      <p>キーワード設定</p>
+      <input name="keyword" value="<%= @serch_data.keyword %>">
+      <input type="submit" value="設定を完了する">
+    <% end %>
+    
+<p>設定一覧</p>
+
+<p>-------------------</p>
+
+<table>
+    
+    <tr>
+        <td>No.</td>
+            <th>キーワード</th>
+    </tr>
+    
+    <% @serch_all.each do|serch| %>
+    <tr>
+        <td><%= config_num %></td>
+        <td><%= serch.keyword %></td>
+        <% config_num += 1 %>
+        <td><%= link_to("削除","/#{serch.id}/serch_destroy",{method: "post"}) %></td>
+    </tr>
+    <% end %>
+</table>

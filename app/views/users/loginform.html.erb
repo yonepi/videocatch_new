@@ -1,0 +1,12 @@
+    <p>ログイン</p>
+    <%= form_tag("/users/login") do %>
+      <p>名前</p>
+      <input name="name" value="<%= @user.name %>">
+      <p>パスワード</p>
+      <input type="password" name="password" value="<%= @user.password %>">
+      <br>
+      <input type="checkbox" name="remember_me" value="1" ><span>ログインしたままにする</span>
+      <br>
+      <input id="loginbutton" type="submit" value="ログイン">
+    <% end %>
+    <p>名前=test、パスワード=testman でテストユーザーとしてログインできます</p>

@@ -1,0 +1,42 @@
+<!--@serch_allからログインユーザーの全ての検索キーワードを引っ張る-->
+<% @serch_all.each do |searchword| %>
+    <!--set_video_siteはパーシャル界における引数みたいな感じで、Viewでset_video_site:@nicovideo_allみたいな感じで指定してデータをセットする-->
+    <% video_information = set_video_site.where(keyword: searchword.keyword) %>
+    <div class="searchresult_wrapper">
+        <div class="searchword_title"><p class="search_keyword"><%= "#{searchword.keyword}"%></p>で取得</div>
+        <% if video_information.where(term: set_term).count()==0 %>
+        <% else %>
+        <div class="grad_wrap">
+            <% if video_information.where(term: set_term).count()>4 %>
+                <div class="grad_item">
+            <% end %>
+        
+            <% video_information.each do |videooo|  %>
+                <% if videooo.term == set_term %>
+                    <div class="video_oneblock">
+                        <%= image_tag(videooo.thumbnail_url,:class =>"video_thumbnails") %>
+                        <br>
+                        <div class="video_information_area">
+                            <p class="video_duration"><%= videooo.duration %></p>
+                            <%= link_to(videooo.title , videooo.video_url ,
+                                {:class => "video_title", :target => :_blank}) %>
+                            <%= link_to(videooo.channel ,videooo.channel_url,
+                                {:class => "video_channel" , :target => :_blank }) %>
+                            <p class="video_published_time"><%= videooo.published_time.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %></p>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if video_information.where(term: set_term).count()>4 %>
+                </div>
+            <% end %>
+        </div>
+        <% if video_information.where(term: set_term).count()>4 %>
+            <button class="grad_trigger is_hide">▼すべて開く</button>
+        <% end %>
+    <% end %>
+    </div>
+<% end %>        
+
+
+

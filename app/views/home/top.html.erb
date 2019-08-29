@@ -1,0 +1,50 @@
+<% now = Time.current.in_time_zone('Tokyo') %>
+<% keynum = 0%>
+    <div class="today_video">
+        <p class="today_get_title" style="margin-top: 0px;">今日の動画(<%= "#{now.ago(1.days).strftime("%Y-%m-%d")}～#{now.strftime("%Y-%m-%d")}" %>)</p>
+        <div class="youtube_wrapper">
+            <div class="bg_mask">
+            <p class="videosite_title">Youtube</p>
+            <%= render :partial => "videoblock_view" , :locals => { set_term: "oneday" , set_video_site:@youtube_all } %>
+            </div>
+        </div>
+ 
+         <div class="nicovideo_wrapper">
+            <div class="bg_mask">
+            <p class="videosite_title">ニコニコ動画</p>
+            <%= render :partial => "videoblock_view" , :locals => { set_term: "oneday" , set_video_site:@nicovideo_all } %>
+            </div>
+        </div>
+        
+        <div class="dailymotion_wrapper">
+            <div class="bg_mask">            
+            <p class="videosite_title">Dailymotion</p>
+            <%= render :partial => "videoblock_view" , :locals => { set_term: "oneday",set_video_site: @dailyvideo_all} %>
+
+            </div>  
+        </div>   
+    </div>
+
+    <div class="past_video">
+        <p class="today_get_title">過去1か月に取得した動画</p>
+        <div class="youtube_wrapper">
+            <div class="bg_mask">
+            <p class="videosite_title">Youtube</p>
+            <%= render :partial => "videoblock_view" , :locals => { set_term: "in_1months" , set_video_site:@youtube_all } %>
+            </div>
+        </div>
+ 
+         <div class="nicovideo_wrapper">
+            <div class="bg_mask">
+            <p class="videosite_title">ニコニコ動画</p>
+            <%= render :partial => "videoblock_view" , :locals => { set_term: "in_1months" , set_video_site:@nicovideo_all } %>
+            </div>
+        </div>
+        
+        <div class="dailymotion_wrapper">
+            <div class="bg_mask">            
+            <p class="videosite_title">Dailymotion</p>
+            <%= render :partial => "videoblock_view" , :locals => { set_term: "in_1months",set_video_site: @dailyvideo_all} %>
+            </div>  
+        </div>   
+    </div>

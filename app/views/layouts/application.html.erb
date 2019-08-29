@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VideoCatch</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--viewportを指定してスマホ閲覧時の自動縮小を防ぐ-->
+    <meta name="viewport" content="width=device-width">
+    <!--通知を行うための、onesignalの設定用ヘッダーhttps://qiita.com/arsley/items/8e281ef241873158db74-->
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId:"<%= ENV["ONESIGNAL_PRODUCTION_APPID"] %>",
+        });
+      });
+    </script>
+  </head>
+  
+  <header>
+    <ul>
+    <% if @current_user %>
+      <li class="login_user"><%= "現在ログイン中のユーザー#{@current_user.name}" %></li>
+      <div class="right_menu">
+      <li id="topbutton"><%= link_to("ホーム","/#{@current_user.id}/top") %></li>
+      <li><%= link_to("使い方","/home/about") %></li>
+      <li><%= link_to("取得動画設定","/#{@current_user.id}/serch_config") %></li>
+      <li><%= link_to("ログアウト","/users/logout",{method: "post"}) %></li>
+      </div>
+    <% else %>
+      <li class="login_user">ログインしていません</li>
+      <div class="right_menu">
+      <li><%= link_to("新規登録","/users/sign_in") %></li>
+      <li><%= link_to("ログイン","/users/login") %></li>
+      <li><%= link_to("使い方","/home/about") %></li>
+      </div>
+    <% end %>
+    </ul>
+  </header>
+  <body>
+    <!--フラッシュメッセージ表示箇所-->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <!--エラーメッセージ表示箇所-->
+    <ul>
+      <% if @error_messages %>
+        <% @error_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end%>
+    </ul>
+    <%= yield %>
+  </body>
+</html>
