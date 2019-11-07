@@ -92,6 +92,7 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
+    ffi (1.11.1-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     google-api-client (0.9.28)
@@ -150,14 +151,18 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.10)
+    msgpack (1.2.10-x64-mingw32)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.3.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.4-x64-mingw32)
+      mini_portile2 (~> 2.4.0)
     os (1.0.1)
     pg (0.19.0)
+    pg (0.19.0-x64-mingw32)
     public_suffix (3.1.0)
     puma (3.12.1)
     rack (2.0.7)
@@ -236,6 +241,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2019.3)
+      tzinfo (>= 1.0.0)
     uber (0.0.15)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
@@ -254,6 +261,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   bcrypt (~> 3.1.11)
@@ -285,7 +293,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.5.5p157
 
 BUNDLED WITH
    1.17.3

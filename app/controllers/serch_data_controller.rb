@@ -21,18 +21,22 @@ class SerchDataController < ApplicationController
             render("serch_data/serch_config")
         end
     end
- 
+
     def destroy
         @serch_data = SearchDatum.find_by(id: params[:id])
-        
         if @serch_data.user_id == session[:user_id]
-            @serch_data.destroy
-            flash[:notice]="削除しました。"
-            redirect_to("/#{@serch_data.user_id}/serch_config")
-        else 
+            #ユーザーID1はテストユーザーのため削除不可にする
+            if @serch_data.user_id == 1
+                flash[:notice]="テストユーザーのため削除できません"
+                redirect_to("/#{@serch_data.user_id}/serch_config")
+            else
+                @serch_data.destroy
+                flash[:notice]="削除しました。"
+                redirect_to("/#{@serch_data.user_id}/serch_config")
+            end
+        else
             flash[:notice]="不正な操作です。"
             redirect_to("/#{@serch_data.user_id}/serch_config")
         end
-    end   
-    
+    end
 end
