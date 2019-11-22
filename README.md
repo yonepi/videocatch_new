@@ -15,7 +15,7 @@ youtube.key = ENV["YOUTUBE_APIKEY"]
 
 上記で自動動画検索機として作動し、以下のように、当日分の動画を拾ってきてくれます。
 
-![video](https://i.imgur.com/Qoxk801.png)
+![video](https://i.imgur.com/jFP1c6q.png)
 
 ***使い方***
 
